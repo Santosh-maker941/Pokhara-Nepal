@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mobileMenu.classList.add('active');
         });
 
-        // Close Menu
+        // Close Menu (button)
         closeBtn.addEventListener('click', () => {
             mobileMenu.classList.remove('active');
         });
@@ -111,6 +111,20 @@ document.addEventListener('DOMContentLoaded', () => {
             link.addEventListener('click', () => {
                 mobileMenu.classList.remove('active');
             });
+        });
+
+        // Close when clicking outside the menu content (on overlay)
+        mobileMenu.addEventListener('click', (e) => {
+            if (e.target === mobileMenu) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+
+        // Close on Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                mobileMenu.classList.remove('active');
+            }
         });
     }
 });
